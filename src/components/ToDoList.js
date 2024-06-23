@@ -65,34 +65,37 @@ useEffect(() => {
 
 return (
     <div className="todoList">
-        <h1 className="title">ToDoリスト</h1>
+        <h1 className="title">企業管理</h1>
+
         <input value={todo} onChange={(e) => setTodo(e.target.value)} />
         <button onClick={handlePush} className="button">
             登録
         </button>
-        <h2>タスク一覧</h2>
-        <h3>完</h3>
-        <ul className="ul">
-            {completedTodos.map((completedTodo, index) => (
-                <li key={completedTodo.id} className="li">
-                    {completedTodo.name}
-                    <button onClick={() => handleDelete(index)} className="button">
-							タスクを消す
-					</button>
-                </li>
-            ))}
-        </ul>
-        <h3>未完</h3>
+        
+        <h2>企業一覧</h2>
+        <h3>選考中</h3>
         <ul className="ul">
             {todos.map((todo, index) => (
                 <li key={todo.id} className="li">
                     {todo.name}
-                    <button onClick={() => handleComplete(index)} className="button">
-                        完了する
+                    <button onClick={() => handleComplete(index)} className="ToDo_button">
+                        落選
                     </button>
                 </li>
             ))}
         </ul>
+        <h3>落選</h3>
+        <ul className="ul">
+            {completedTodos.map((completedTodo, index) => (
+                <li key={completedTodo.id} className="li">
+                    {completedTodo.name}
+                    <button onClick={() => handleDelete(index)} className="ToDo_delete_button">
+							企業を消す
+					</button>
+                </li>
+            ))}
+        </ul>
+       
     
     </div>
 )
